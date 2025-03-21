@@ -74,6 +74,7 @@ form label, form input {
 }
 
 /* Donkere modus */
+
 body.dark-mode {
     background-color: #121212;
     color: white;
@@ -84,12 +85,6 @@ body.dark-mode {
     justify-content: flex-end;
   /* dit moet je ff zelf doen. de donkere modus moet naar boven op dezelfde locatie. dus rechts bovenin  margin-top: blablabla; */
 }
-
-
-
-
-
-
 
 body.dark-mode .column {
     background-color: #444;
