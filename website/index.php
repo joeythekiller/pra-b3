@@ -44,4 +44,4 @@
         <h2>Afdelingen</h2>
         <div class="afdelingen-list">
             <div class="afdeling">
-                <h3>Afdeling 1</h3> /* margin-top: blablabla;
+                <h3>Afdeling 1</h3>
