@@ -53,7 +53,8 @@ form {
     flex-direction: column;
 }
 
-form label, form input {
+form label,
+form input {
     margin: 10px 0;
 }
 
@@ -80,10 +81,10 @@ body.dark-mode {
     color: white;
 }
 
-#settings{
+#settings {
     display: flex;
     justify-content: flex-end;
-  /* dit moet je ff zelf doen. de donkere modus moet naar boven op dezelfde locatie. dus rechts bovenin  margin-top: blablabla; */
+    /* dit moet je ff zelf doen. de donkere modus moet naar boven op dezelfde locatie. dus rechts bovenin  margin-top: blablabla; */
 }
 
 body.dark-mode .column {
