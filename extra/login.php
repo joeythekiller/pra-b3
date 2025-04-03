@@ -1,25 +1,18 @@
 <?php
-// Include the database connection file
 require_once '../backend/conn.php';
 
-// Handle form submission for both login and registration
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Check if the form is for login or registration
     if (isset($_POST['login'])) {
-        // Handle login
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        // Check if the user exists in the database
         $sql = "SELECT * FROM users WHERE username = :username";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
 
-        // Fetch the user data
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Verify the password
         if ($user && password_verify($password, $user['password'])) {
             session_start();
             $_SESSION['username'] = $username;
@@ -29,34 +22,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $loginError = "Invalid username or password!";
         }
     } elseif (isset($_POST['register'])) {
-        // Handle registration
         $username = $_POST['username'];
         $password = $_POST['password'];
         $confirmPassword = $_POST['confirm_password'];
 
-        // Check if the username already exists
         $sql = "SELECT * FROM users WHERE username = :username";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
 
-        // If the username already exists, show an error
         if ($stmt->rowCount() > 0) {
             $registerError = "Username already exists!";
         } elseif ($password !== $confirmPassword) {
             $registerError = "Passwords do not match!";
         } else {
-            // Hash the password before storing it
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-            // Insert the new user into the database
             $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':username', $username, PDO::PARAM_STR);
             $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
             $stmt->execute();
 
-            // Redirect to login page after successful registration
             $registerSuccess = "Registration successful! You can now log in.";
         }
     }
@@ -80,8 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="#settings">Settings</a>
     </nav>
 </header>
-
-<!-- Login Page -->
+<center>
 <section id="login">
     <h2>Login</h2>
     <form action="login.php" method="POST">
@@ -98,7 +84,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ?>
 </section>
 
-<!-- Registration Page -->
 <section id="register">
     <h2>Register</h2>
     <form action="login.php" method="POST">
@@ -118,6 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     ?>
 </section>
+</center>
 
 </body>
 </html>

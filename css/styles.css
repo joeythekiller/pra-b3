@@ -87,10 +87,6 @@ body.dark-mode {
 
 
 
-
-
-
-
 body.dark-mode .column {
     background-color: #444;
 }
@@ -101,3 +97,90 @@ footer {
     background-color: #333;
     color: white;
 }
+
+/* Center and style the messages section */
+#messages-section {
+    max-width: 800px; /* Limit width for readability */
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px;
+    text-align: center; /* Center text inside */
+}
+
+/* Style the message form */
+.message-form {
+    margin-bottom: 20px;
+}
+
+.message-form textarea {
+    width: 100%;
+    max-width: 600px;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+.message-form button {
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.message-form button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Style the messages container */
+.messages {
+    text-align: left; /* Left-align messages for readability */
+}
+
+/* Style individual message boxes */
+.message-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Style the message header */
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.message-header .username {
+    font-weight: bold;
+    color: #333;
+}
+
+.message-header .message-date {
+    font-style: italic;
+}
+
+/* Style the message content */
+.message-content {
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word; /* Prevent overflow */
+}
+
+/* Style the 'no messages' text */
+.messages p {
+    font-style: italic;
+    color: #777;
+}
+
