@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h1>Website Pro</h1>
     <nav>
         <a href="login.php">Login</a>
-        <a href="../index.html">Dashboard</a>
+        <a href="../index.php">Dashboard</a>
         <a href="#settings">Settings</a>
     </nav>
 </header>
